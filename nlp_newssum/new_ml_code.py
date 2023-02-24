@@ -44,6 +44,23 @@ def news_crwaling(search):
 
     # 주식 코드 추출 완료
 
+    ## 주식 시가 정보 가져오기
+
+    url = 'https://finance.naver.com/item/sise_day.naver?code=' + code
+
+    # HTTP GET 요청을 보내고 응답을 받습니다.
+    html = requests.get(url, headers = {'User-agent' : 'Mozilla/5.0'}).text
+    soup = BeautifulSoup(html, "lxml")
+
+    df = None
+
+    req = requests.get(f'{url}&page=1', headers = {'User-agent' : 'Mozilla/5.0'})
+    df = pd.concat([df, pd.read_html(req.text, encoding = 'euc-kr')[0]], ignore_index = True)
+    df.dropna(inplace = True)
+    df.reset_index(drop = True, inplace = True)
+
+
+
     ##  특정 검색어에 해당하는 관련 뉴스들의 url 가져오기
 
     # 네이버증권 -> 검색어 검색 -> 뉴스 공시에 해당 하는 웹 페이지로 이동
@@ -98,7 +115,7 @@ def news_crwaling(search):
  
 
 
-    return titles, article_result
+    return titles, article_result, df
 
 
 def sum_model(news_cnt_sr):
