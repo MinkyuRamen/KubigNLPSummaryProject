@@ -1,1 +1,1 @@
-# KUBIG_2023_WIN NewsSummary_Service_project
+# KUBIG_2023_WIN Project
