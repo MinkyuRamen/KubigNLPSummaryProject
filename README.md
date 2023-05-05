@@ -21,7 +21,7 @@ AI Hub 문서요약 텍스트 데이터 활용
 => 요약이 잘 안된 기사들을 거르기 위해 Title과 Content를 sentenceTransformer를 활용해 인코딩 후 유사도 구함
 
 ### service
-<img src="https://img.shields.io/badge/FastAPI-#009688?style=for-the-badge&logo=FastAPI&logoColor=white">
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 
 1. 유저가 탐색하고자 한느 기업명 입력 * 국내 상장 기업 중
 
